@@ -19,7 +19,7 @@ const AddUser = (props) => {
       return;
     }
 
-    console.log(username, age);
+    props.onAddUser(username, age);
     // set clear input fields
     setUsername("");
     setAge("");
@@ -34,25 +34,27 @@ const AddUser = (props) => {
   };
 
   return (
-    <Card className={classes.input}>
-      <form onSubmit={addUserHandler}>
-        <label htmlFor="username">Username</label>
-        <input
-          id="username"
-          type="text"
-          value={username}
-          onChange={usernameChangedHandler}
-        />
-        <label htmlFor="age">Umur(Tahun)</label>
-        <input
-          id="age"
-          type="number"
-          value={age}
-          onChange={ageChangedHandler}
-        />
-        <Button type="submit">Tambah</Button>
-      </form>
-    </Card>
+    <div>
+      <Card className={classes.input}>
+        <form onSubmit={addUserHandler}>
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            value={username}
+            onChange={usernameChangedHandler}
+          />
+          <label htmlFor="age">Umur (Tahun)</label>
+          <input
+            id="age"
+            type="number"
+            value={age}
+            onChange={ageChangedHandler}
+          />
+          <Button type="submit">Tambah</Button>
+        </form>
+      </Card>
+    </div>
   );
 };
 
